@@ -13,7 +13,6 @@ class Rating(models.IntegerChoices):
     FIVE_STARS = 5, '5 Stars'
 
 
-
 class Restaurant(models.Model):
     CUISINE_CHOICES = [
         ('AFRICAN', 'African'),
@@ -40,11 +39,15 @@ class RestaurantOwner(models.Model):
         ('Male','Male'),
         ('Female','Female'),
     ]
+    Nationality_Choices=[
+        ('Rwandan','Rwandan'),
+        ('Foreigner','Foreigner'),
+    ]
     FirstName=models.CharField(max_length=100)
     LastName=models.CharField(max_length=100)
     Gender=models.CharField(max_length=100,choices=Gender_Choices)
     PhoneNumber=models.CharField(max_length=13)
-    Nationality=models.CharField(max_length=20)
+    Nationality=models.CharField(max_length=20,choices=Nationality_Choices)
 
 
     def __str__(self):
