@@ -1,12 +1,12 @@
 from django.urls import path
-from .views import RestaurantListCreate, RestaurantRetrieveUpdateDestroy, RestaurantOwnerListCreate, RestaurantOwnerRetrieveUpdateDestroy
+from .views import CreateRestaurant, RestaurantDetails, CreateOwner, OwnerDetails
 
 
 
 
 urlpatterns = [
-    path('restaurants/', RestaurantListCreate.as_view(), name='restaurant-list-create'),
-    path('restaurants/<int:id>/', RestaurantRetrieveUpdateDestroy.as_view(), name='restaurant-retrieve-update-destroy'),
-    path('restaurant-owners/', RestaurantOwnerListCreate.as_view(), name='restaurant-owner-list-create'),
-    path('restaurant-owners/<int:id>/', RestaurantOwnerRetrieveUpdateDestroy.as_view(), name='restaurant-owner-retrieve-update-destroy'),
+    path('restaurants/', CreateRestaurant.as_view(), name='Create-restaurant'),
+    path('restaurants/<int:id>/', RestaurantDetails.as_view(), name='Details-restaurant'),
+    path('owners/', CreateOwner.as_view(), name='register-owner'),
+    path('owners/<int:id>/', OwnerDetails.as_view(), name='Detail-owner'),
 ]
